@@ -1,149 +1,205 @@
 import './App.css'
 
-const featuredAnime = [
+const dayMovies = [
   {
-    title: 'Skyline Blades',
-    genre: 'Action / Sci-Fi',
-    description:
-      'A rogue pilot and an exiled prince fight across neon cities to stop a war machine waking under the sea.',
-    badge: 'Trending',
+    title: 'Sousou no Frieren',
+    year: '2022',
+    image: 'https://picsum.photos/seed/frieren/320/460',
   },
   {
-    title: 'Moonlit Garden',
-    genre: 'Fantasy / Drama',
-    description:
-      'A quiet story about a shrine keeper who can hear wishes growing inside the flowers he tends at midnight.',
-    badge: 'New',
+    title: 'Gintama',
+    year: '1998',
+    image: 'https://picsum.photos/seed/gintama/320/460',
   },
   {
-    title: 'Zero Hour Tokyo',
-    genre: 'Thriller / Mystery',
-    description:
-      'When the city resets every 12 minutes, a delivery runner becomes the only person who remembers the loop.',
-    badge: 'Top Pick',
+    title: 'Shingeki no Kyojin',
+    year: '2021',
+    image: 'https://picsum.photos/seed/aot/320/460',
+  },
+  {
+    title: 'Hunter x Hunter',
+    year: '2014',
+    image: 'https://picsum.photos/seed/hxh/320/460',
+  },
+  {
+    title: 'Bleach: Sennen Kessen-hen',
+    year: '2008',
+    image: 'https://picsum.photos/seed/bleach/320/460',
   },
 ]
 
-const weeklySchedule = [
-  { day: 'Mon', title: 'Midnight Signal', time: '20:00 JST' },
-  { day: 'Wed', title: 'Neon Bloom', time: '21:30 JST' },
-  { day: 'Fri', title: 'Blade Archive', time: '22:00 JST' },
-  { day: 'Sun', title: 'Starlight Orbit', time: '19:00 JST' },
+const popularSeries = [
+  {
+    title: 'Shingeki no Kyojin',
+    year: '2021',
+    image: 'https://picsum.photos/seed/aot2/320/460',
+  },
+  {
+    title: 'Hunter x Hunter',
+    year: '2014',
+    image: 'https://picsum.photos/seed/hxh2/320/460',
+  },
+  {
+    title: 'Gintama',
+    year: '1998',
+    image: 'https://picsum.photos/seed/gintama2/320/460',
+  },
+  {
+    title: 'Bleach: Sennen Kessen-hen',
+    year: '2008',
+    image: 'https://picsum.photos/seed/bleach2/320/460',
+  },
+  {
+    title: 'Sousou no Frieren',
+    year: '2022',
+    image: 'https://picsum.photos/seed/frieren2/320/460',
+  },
 ]
 
-const stats = [
-  { label: 'Series tracked', value: '120+' },
-  { label: 'Episode updates', value: 'Daily' },
-  { label: 'Genres covered', value: '18' },
+const movieNews = [
+  {
+    title: 'Kaguya-sama wa Kokurasetai',
+    image: 'https://picsum.photos/seed/kaguya/220/300',
+    excerpt: 'Opowiada historię Naruto Uzumakiego, młodego ninja, który marzy o zostaniu najsilniejszym...',
+  },
+  {
+    title: 'Monster',
+    image: 'https://picsum.photos/seed/monster/220/300',
+    excerpt: 'Opowiada historię Naruto Uzumakiego, młodego ninja, który marzy o zostaniu najsilniejszym...',
+  },
+  {
+    title: 'Shingeki no Kyojin: The Final Season',
+    image: 'https://picsum.photos/seed/final/220/300',
+    excerpt: 'Opowiada historię Naruto Uzumakiego, młodego ninja, który marzy o zostaniu najsilniejszym...',
+  },
+  {
+    title: 'Gintama',
+    image: 'https://picsum.photos/seed/gintama-news/220/300',
+    excerpt: 'Opowiada historię Naruto Uzumakiego, młodego ninja, który marzy o zostaniu najsilniejszym...',
+  },
+  {
+    title: 'Vinland Saga 2',
+    image: 'https://picsum.photos/seed/vinland/220/300',
+    excerpt: 'Opowiada historię Naruto Uzumakiego, młodego ninja, który marzy o zostaniu najsilniejszym...',
+  },
+  {
+    title: 'Hajime no Ippo',
+    image: 'https://picsum.photos/seed/ippo/220/300',
+    excerpt: 'Opowiada historię Naruto Uzumakiego, młodego ninja, który marzy o zostaniu najsilniejszym...',
+  },
 ]
 
 function App() {
   return (
-    <main className="page-shell">
-      <header className="topbar">
-        <div>
-          <p className="eyebrow">Anime base for React</p>
-          <h1>Discover your next favorite series.</h1>
-        </div>
-        <nav className="nav-pills" aria-label="Primary">
-          <a href="#featured">Featured</a>
-          <a href="#schedule">Schedule</a>
-          <a href="#library">Library</a>
-        </nav>
-      </header>
+    <main className="site-wrap">
+      <section className="site-panel">
+        <header className="site-header">
+          <a className="logo" href="#home" aria-label="Anime">
+            <strong>ANIME</strong>
+            <span>FILMY I SERIALE</span>
+          </a>
 
-      <section className="hero-panel">
-        <div className="hero-copy">
-          <span className="status-chip">Seasonal catalog open</span>
-          <h2>Curated anime cards, episode timing, and genre discovery in one clean base.</h2>
-          <p>
-            Use this React starter as the foundation for an anime streaming site, fan catalog, or review hub.
-            The layout is already split into hero, featured shows, and weekly schedule sections.
-          </p>
-          <div className="hero-actions">
-            <a className="primary-action" href="#featured">
-              Browse featured
-            </a>
-            <a className="secondary-action" href="#library">
-              Explore genres
-            </a>
+          <nav className="main-nav" aria-label="Nawigacja główna">
+            <a href="#filmy">Filmy</a>
+            <a href="#seriale">Seriale</a>
+            <a href="#nowosci">Nowości</a>
+            <a href="#popularne">Popularne</a>
+            <a href="#aktorzy">Aktorzy</a>
+            <a href="#blog">Blog</a>
+          </nav>
+
+          <div className="header-tools">
+            <label className="search-box" htmlFor="search">
+              <input id="search" type="text" placeholder="Wyszukaj film" />
+              <span>⌕</span>
+            </label>
+            <button className="menu-btn" type="button" aria-label="Open menu">
+              ☰
+            </button>
           </div>
-          <div className="stats-row" aria-label="Site stats">
-            {stats.map((stat) => (
-              <article key={stat.label} className="stat-card">
-                <strong>{stat.value}</strong>
-                <span>{stat.label}</span>
+        </header>
+
+        <section className="hero" id="home">
+          <div className="hero-overlay" />
+          <div className="hero-content">
+            <h1>NARUTO</h1>
+            <div className="hero-tags">
+              <span>12+</span>
+              <span>AKCJA</span>
+              <span>Z NAPISAMI</span>
+            </div>
+            <p>
+              Opowiada historię Naruto Uzumakiego, młodego ninja, który marzy o zostaniu najsilniejszym
+              ninja w swojej wiosce (Hokage), jednocześnie szukając uznania i walcząc z wewnętrznymi
+              demonami.
+            </p>
+            <div className="hero-actions">
+              <a className="btn btn-primary" href="#filmy">
+                OGLĄDAJ TERAZ
+              </a>
+              <a className="btn btn-ghost" href="#opis">
+                CZYTAJ OPIS
+              </a>
+            </div>
+          </div>
+          <div className="slider-dots" aria-hidden="true">
+            <span className="active" />
+            <span />
+            <span />
+          </div>
+        </section>
+
+        <section className="shelf" id="filmy">
+          <header className="shelf-head">
+            <h2>FILMY DNIA</h2>
+          </header>
+          <div className="poster-row">
+            {dayMovies.map((item) => (
+              <article key={item.title} className="poster-item">
+                <div className="poster-frame">
+                  <img src={item.image} alt={item.title} loading="lazy" />
+                  <span className="year-pill">{item.year}</span>
+                </div>
+                <h3>{item.title}</h3>
               </article>
             ))}
           </div>
-        </div>
+        </section>
 
-        <div className="hero-visual" aria-hidden="true">
-          <div className="orbit orbit-one" />
-          <div className="orbit orbit-two" />
-          <div className="poster-card main-poster">
-            <span className="poster-tag">Tonight</span>
-            <h3>Neon Samurai</h3>
-            <p>Episode 08 - City lights, steel rain.</p>
+        <section className="shelf" id="popularne">
+          <header className="shelf-head">
+            <h2>POPULARNE SERIALE</h2>
+          </header>
+          <div className="poster-row">
+            {popularSeries.map((item) => (
+              <article key={item.title} className="poster-item">
+                <div className="poster-frame">
+                  <img src={item.image} alt={item.title} loading="lazy" />
+                  <span className="year-pill">{item.year}</span>
+                </div>
+                <h3>{item.title}</h3>
+              </article>
+            ))}
           </div>
-          <div className="poster-card small-poster">
-            <span className="dot" />
-            <p>Next premiere in 02:14:36</p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="content-grid" id="featured">
-        <div className="section-heading">
-          <p className="eyebrow">Featured series</p>
-          <h3>Shows with strong hooks and visual identity.</h3>
-        </div>
-        <div className="anime-grid">
-          {featuredAnime.map((anime) => (
-            <article key={anime.title} className="anime-card">
-              <span className="card-badge">{anime.badge}</span>
-              <h4>{anime.title}</h4>
-              <p className="genre">{anime.genre}</p>
-              <p>{anime.description}</p>
-              <a href="#library">View details</a>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="content-grid two-column" id="schedule">
-        <div>
-          <div className="section-heading">
-            <p className="eyebrow">Weekly schedule</p>
-            <h3>Make release timing easy to scan.</h3>
-          </div>
-          <div className="schedule-list">
-            {weeklySchedule.map((item) => (
-              <article key={item.title} className="schedule-item">
-                <span>{item.day}</span>
+        <section className="news" id="nowosci">
+          <header className="shelf-head">
+            <h2>NOWOŚCI FILMOWE</h2>
+          </header>
+          <div className="news-grid">
+            {movieNews.map((item) => (
+              <article key={item.title} className="news-card">
+                <img src={item.image} alt={item.title} loading="lazy" />
                 <div>
-                  <strong>{item.title}</strong>
-                  <p>{item.time}</p>
+                  <h4>{item.title}</h4>
+                  <p>{item.excerpt}</p>
+                  <a href="#home">OGLĄDAJ TERAZ →</a>
                 </div>
               </article>
             ))}
           </div>
-        </div>
-
-        <aside className="library-panel" id="library">
-          <div className="section-heading compact">
-            <p className="eyebrow">Library notes</p>
-            <h3>Base sections ready for search, filtering, or watchlists.</h3>
-          </div>
-          <ul className="library-tags">
-            <li>Action</li>
-            <li>Romance</li>
-            <li>Slice of life</li>
-            <li>Fantasy</li>
-            <li>Mystery</li>
-            <li>Mecha</li>
-          </ul>
-        </aside>
+        </section>
       </section>
     </main>
   )
