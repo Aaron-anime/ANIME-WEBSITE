@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { ChevronRight } from 'lucide-react';
 
 interface AnimeItem {
@@ -325,6 +325,7 @@ interface AnimeGridProps {
 export default function AnimeGrid({ searchQuery, contentType }: AnimeGridProps) {
   const [activeSeason, setActiveSeason] = useState<SeasonalTab>('Airing now');
   const [episodeMode, setEpisodeMode] = useState<'recent' | 'recommended'>('recent');
+  const posterRowRef = useRef<HTMLDivElement | null>(null);
 
   const normalizedQuery = searchQuery.trim().toLowerCase();
 
@@ -354,16 +355,26 @@ export default function AnimeGrid({ searchQuery, contentType }: AnimeGridProps) 
     return episodeMode === 'recent' ? recentEpisodes : recommendedEpisodes;
   }, [episodeMode]);
 
+  const handlePosterScroll = () => {
+    if (!posterRowRef.current) return;
+    posterRowRef.current.scrollBy({ left: 240, behavior: 'smooth' });
+  };
+
   return (
     <section className="top-rated-section" aria-label="Top rated anime">
       <header className="top-rated-header">
         <h2>Top Rated Anime</h2>
-        <button type="button" className="icon-button" aria-label="Show more top rated anime">
+        <button
+          type="button"
+          className="icon-button"
+          aria-label="Scroll top rated anime"
+          onClick={handlePosterScroll}
+        >
           <ChevronRight size={16} />
         </button>
       </header>
 
-      <div className="poster-row">
+      <div ref={posterRowRef} className="poster-row">
         {visibleTopRatedAnime.length > 0 ? (
           visibleTopRatedAnime.map((anime) => (
             <article key={anime.id} className="poster-card">

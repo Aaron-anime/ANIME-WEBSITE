@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useState } from 'react';
 import { Search } from 'lucide-react';
 
 interface SideListItem {
@@ -90,6 +91,7 @@ interface RightPanelProps {
 }
 
 export default function RightPanel({ searchQuery, onSearchQueryChange }: RightPanelProps) {
+  const [showAllPopular, setShowAllPopular] = useState(false);
   const normalizedQuery = searchQuery.trim().toLowerCase();
 
   const filteredPopular = useMemo(() => {
@@ -112,6 +114,13 @@ export default function RightPanel({ searchQuery, onSearchQueryChange }: RightPa
     });
   }, [normalizedQuery]);
 
+  const visiblePopular = useMemo(() => {
+    if (normalizedQuery) return filteredPopular;
+    return showAllPopular ? filteredPopular : filteredPopular.slice(0, 3);
+  }, [filteredPopular, normalizedQuery, showAllPopular]);
+
+  const canTogglePopular = !normalizedQuery && filteredPopular.length > 3;
+
   return (
     <aside className="right-panel" aria-label="Search and recommendations panel">
       <label className="search-wrap" aria-label="Search anime">
@@ -124,7 +133,30 @@ export default function RightPanel({ searchQuery, onSearchQueryChange }: RightPa
         />
       </label>
 
-      <SideList title="Popular Anime" items={filteredPopular} />
+      <section className="side-section" aria-label="Popular Anime">
+        <h3>Popular Anime</h3>
+        <div className="side-list">
+          {visiblePopular.length > 0 ? (
+            visiblePopular.map((item) => (
+              <article key={item.id} className="side-list-item">
+                <img src={item.imageUrl} alt={item.title} loading="lazy" />
+                <div>
+                  <h4>{item.title}</h4>
+                  <p>{item.subtitle}</p>
+                </div>
+              </article>
+            ))
+          ) : (
+            <p className="side-empty">No anime matched your search.</p>
+          )}
+        </div>
+        {canTogglePopular ? (
+          <button type="button" className="see-more-button" onClick={() => setShowAllPopular((v) => !v)}>
+            {showAllPopular ? 'Show Less' : 'See More'}
+          </button>
+        ) : null}
+      </section>
+
       <SideList title="Watchlist" items={filteredWatchlist} />
     </aside>
   );
