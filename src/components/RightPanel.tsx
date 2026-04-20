@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Search } from 'lucide-react';
 
 interface SideListItem {
@@ -60,15 +61,19 @@ function SideList({ title, items }: { title: string; items: SideListItem[] }) {
     <section className="side-section" aria-label={title}>
       <h3>{title}</h3>
       <div className="side-list">
-        {items.map((item) => (
-          <article key={item.id} className="side-list-item">
-            <img src={item.imageUrl} alt={item.title} loading="lazy" />
-            <div>
-              <h4>{item.title}</h4>
-              <p>{item.subtitle}</p>
-            </div>
-          </article>
-        ))}
+        {items.length > 0 ? (
+          items.map((item) => (
+            <article key={item.id} className="side-list-item">
+              <img src={item.imageUrl} alt={item.title} loading="lazy" />
+              <div>
+                <h4>{item.title}</h4>
+                <p>{item.subtitle}</p>
+              </div>
+            </article>
+          ))
+        ) : (
+          <p className="side-empty">No anime matched your search.</p>
+        )}
       </div>
       {title === 'Popular Anime' ? (
         <button type="button" className="see-more-button">
@@ -79,16 +84,48 @@ function SideList({ title, items }: { title: string; items: SideListItem[] }) {
   );
 }
 
-export default function RightPanel() {
+interface RightPanelProps {
+  searchQuery: string;
+  onSearchQueryChange: (query: string) => void;
+}
+
+export default function RightPanel({ searchQuery, onSearchQueryChange }: RightPanelProps) {
+  const normalizedQuery = searchQuery.trim().toLowerCase();
+
+  const filteredPopular = useMemo(() => {
+    if (!normalizedQuery) return popularAnime;
+    return popularAnime.filter((item) => {
+      return (
+        item.title.toLowerCase().includes(normalizedQuery) ||
+        item.subtitle.toLowerCase().includes(normalizedQuery)
+      );
+    });
+  }, [normalizedQuery]);
+
+  const filteredWatchlist = useMemo(() => {
+    if (!normalizedQuery) return watchlistAnime;
+    return watchlistAnime.filter((item) => {
+      return (
+        item.title.toLowerCase().includes(normalizedQuery) ||
+        item.subtitle.toLowerCase().includes(normalizedQuery)
+      );
+    });
+  }, [normalizedQuery]);
+
   return (
     <aside className="right-panel" aria-label="Search and recommendations panel">
       <label className="search-wrap" aria-label="Search anime">
         <Search size={16} />
-        <input type="search" placeholder="Type to search" />
+        <input
+          type="search"
+          placeholder="Type to search"
+          value={searchQuery}
+          onChange={(event) => onSearchQueryChange(event.target.value)}
+        />
       </label>
 
-      <SideList title="Popular Anime" items={popularAnime} />
-      <SideList title="Watchlist" items={watchlistAnime} />
+      <SideList title="Popular Anime" items={filteredPopular} />
+      <SideList title="Watchlist" items={filteredWatchlist} />
     </aside>
   );
 }

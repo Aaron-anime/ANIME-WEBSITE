@@ -162,6 +162,7 @@
   font-size: 0.86rem;
   cursor: pointer;
   padding: 0.2rem 0;
+  transition: color 160ms ease;
 }
 
 .main-top-nav li.is-active button {
@@ -184,6 +185,11 @@
   display: flex;
   align-items: center;
   padding: 0 0.64rem;
+  transition: border-color 160ms ease;
+}
+
+.top-search:focus-within {
+  border-color: rgba(239, 35, 60, 0.5);
 }
 
 .top-search input {
@@ -451,6 +457,12 @@
   object-fit: cover;
   display: block;
   border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform 220ms ease, border-color 220ms ease;
+}
+
+.poster-card:hover img {
+  transform: translateY(-2px);
+  border-color: rgba(239, 35, 60, 0.5);
 }
 
 .poster-meta {
@@ -496,6 +508,12 @@
   border-radius: 7px;
   padding: 0.28rem 0.48rem;
   cursor: pointer;
+  transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease;
+}
+
+.season-tabs button:hover {
+  color: #f4f4f5;
+  border-color: rgba(255, 255, 255, 0.22);
 }
 
 .season-tabs button[aria-selected='true'] {
@@ -580,6 +598,11 @@
   font: inherit;
   font-size: 0.63rem;
   cursor: pointer;
+  transition: color 160ms ease;
+}
+
+.recent-episodes-panel header button:hover {
+  color: #f5f5f6;
 }
 
 .episode-list {
@@ -591,6 +614,13 @@
   display: grid;
   grid-template-columns: 52px minmax(0, 1fr);
   gap: 0.38rem;
+  border-radius: 7px;
+  padding: 0.18rem;
+  transition: background-color 160ms ease;
+}
+
+.episode-item:hover {
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .episode-item img {
@@ -632,6 +662,11 @@
   padding: 0.46rem 0.62rem;
   color: #72727e;
   margin-bottom: 0.88rem;
+  transition: border-color 160ms ease;
+}
+
+.search-wrap:focus-within {
+  border-color: rgba(239, 35, 60, 0.55);
 }
 
 .search-wrap input {
@@ -666,6 +701,12 @@
   border-radius: 8px;
   padding: 0.32rem;
   background: var(--panel);
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.side-list-item:hover {
+  border-color: rgba(239, 35, 60, 0.38);
+  transform: translateY(-1px);
 }
 
 .side-list-item img {
@@ -702,6 +743,26 @@
 .see-more-button:hover {
   border-color: rgba(239, 35, 60, 0.55);
   background: #1a1a20;
+}
+
+.side-empty {
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  padding: 0.55rem 0.5rem;
+  margin: 0;
+  font-size: 0.67rem;
+  color: #a1a1aa;
+}
+
+.content-empty {
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+  border-radius: 9px;
+  padding: 0.7rem 0.6rem;
+  margin: 0;
+  width: 100%;
+  font-size: 0.7rem;
+  color: #a1a1aa;
+  background: rgba(255, 255, 255, 0.02);
 }
 
 /*

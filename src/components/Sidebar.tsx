@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { ComponentType } from 'react';
 import {
   CalendarDays,
@@ -57,6 +58,8 @@ const navGroups: NavGroup[] = [
 ];
 
 export default function Sidebar() {
+  const [activeItem, setActiveItem] = useState('Home');
+
   return (
     <aside className="left-sidebar" aria-label="Main navigation sidebar">
       <div className="sidebar-brand">
@@ -74,7 +77,12 @@ export default function Sidebar() {
               const Icon = item.icon;
               return (
                 <li key={item.label}>
-                  <button type="button" className={item.active ? 'is-active' : ''}>
+                  <button
+                    type="button"
+                    className={activeItem === item.label ? 'is-active' : ''}
+                    aria-pressed={activeItem === item.label}
+                    onClick={() => setActiveItem(item.label)}
+                  >
                     <Icon size={16} strokeWidth={2.2} />
                     <span>{item.label}</span>
                   </button>
