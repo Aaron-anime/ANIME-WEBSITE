@@ -40,6 +40,24 @@ export default function HeroSection() {
             His name is Saitama, and every strong enemy learns the same lesson in one punch. Follow his
             bizarre rise through hero rankings in a world full of monsters and absurd rivalries.
           </p>
+
+          <div className="hero-actions" aria-label="Hero action buttons">
+            <button type="button" className="hero-read-more">
+              Read More
+            </button>
+            <button type="button" className="hero-ghost-button">
+              Add to List
+            </button>
+          </div>
+        </div>
+
+        <div className="hero-teasers" aria-label="Hero teaser links">
+          <button type="button" className="hero-teaser-card is-dark">
+            To Aru Kagako no Railgun S Trailer
+          </button>
+          <button type="button" className="hero-teaser-card is-accent">
+            Kyoukai no Kanata Teaser Revealed
+          </button>
         </div>
 
         <button type="button" className="hero-play" aria-label="Play One Punch Man">

@@ -19,6 +19,10 @@ export default function MainContent() {
         </nav>
 
         <div className="main-top-actions">
+          <label className="top-search" aria-label="Search from main navigation">
+            <input type="search" placeholder="Search for your fave anime" />
+          </label>
+
           <button type="button" className="icon-button" aria-label="Notifications">
             <Bell size={16} />
           </button>

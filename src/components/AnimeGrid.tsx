@@ -7,6 +7,22 @@ interface AnimeItem {
   subtitle: string;
 }
 
+interface SeasonalItem {
+  id: number;
+  title: string;
+  genre: string;
+  imageUrl: string;
+  highlight?: string;
+}
+
+interface EpisodeItem {
+  id: number;
+  title: string;
+  episode: string;
+  views: string;
+  imageUrl: string;
+}
+
 const animeList: AnimeItem[] = [
   {
     id: 1,
@@ -45,6 +61,75 @@ const animeList: AnimeItem[] = [
   },
 ];
 
+const seasonalTabs = ['Airing now', 'Spring', 'Summer', 'Fall', 'Winter'];
+
+const seasonalAnime: SeasonalItem[] = [
+  {
+    id: 1,
+    title: 'Samurai Flamenco',
+    genre: 'Drama, Comedy',
+    imageUrl:
+      'https://images.unsplash.com/photo-1612036782180-6f0822045d26?auto=format&fit=crop&w=500&q=80',
+  },
+  {
+    id: 2,
+    title: 'Strike the Blood',
+    genre: 'Action, Adventure',
+    imageUrl:
+      'https://images.unsplash.com/photo-1608889176105-4f7e4a5ef8f0?auto=format&fit=crop&w=500&q=80',
+  },
+  {
+    id: 3,
+    title: 'World Conquest Zvezda',
+    genre: 'Fantasy, Sci-Fi',
+    imageUrl:
+      'https://images.unsplash.com/photo-1618172193763-c511deb635ca?auto=format&fit=crop&w=500&q=80',
+    highlight: '3/16 episodes aired',
+  },
+  {
+    id: 4,
+    title: 'Black Bullet',
+    genre: 'Action, Adventure',
+    imageUrl:
+      'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=500&q=80',
+  },
+];
+
+const recentEpisodes: EpisodeItem[] = [
+  {
+    id: 1,
+    title: 'Akuma no Riddle',
+    episode: 'Episode 2, Newcomer Student',
+    views: '1,012 views',
+    imageUrl:
+      'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=320&q=80',
+  },
+  {
+    id: 2,
+    title: 'Free! Eternal Summer',
+    episode: 'Episode 3, Summer Feelings',
+    views: '1,832 views',
+    imageUrl:
+      'https://images.unsplash.com/photo-1604079628040-94301bb21b91?auto=format&fit=crop&w=320&q=80',
+  },
+  {
+    id: 3,
+    title: 'Attack on Titan',
+    episode: 'Episode 8, Titan Fight!',
+    views: '1,125 views',
+    imageUrl:
+      'https://images.unsplash.com/photo-1516280030429-27679b3dc9cf?auto=format&fit=crop&w=320&q=80',
+  },
+  {
+    id: 4,
+    title: 'Kill la Kill',
+    episode: 'Episode 10, Come and Get Us!',
+    views: '984 views',
+    imageUrl:
+      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=320&q=80',
+  },
+];
+
 export default function AnimeGrid() {
   return (
     <section className="top-rated-section" aria-label="Top rated anime">
@@ -68,6 +153,51 @@ export default function AnimeGrid() {
       </div>
 
       <h3 className="subsection-title">Latest Anime</h3>
+
+      <section className="latest-layout" aria-label="Latest anime and recent episodes">
+        <div className="latest-main-column">
+          <div className="season-tabs" role="tablist" aria-label="Seasonal anime filters">
+            {seasonalTabs.map((tab) => (
+              <button key={tab} type="button" role="tab" aria-selected={tab === 'Airing now'}>
+                {tab}
+              </button>
+            ))}
+          </div>
+
+          <div className="latest-card-grid">
+            {seasonalAnime.map((anime) => (
+              <article key={anime.id} className="latest-anime-card">
+                <img src={anime.imageUrl} alt={anime.title} loading="lazy" />
+                {anime.highlight ? <span className="episode-pill">{anime.highlight}</span> : null}
+                <div className="latest-card-copy">
+                  <h4>{anime.title}</h4>
+                  <p>{anime.genre}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <aside className="recent-episodes-panel" aria-label="Recent episodes">
+          <header>
+            <h4>Recent Episodes</h4>
+            <button type="button">Recommended</button>
+          </header>
+
+          <div className="episode-list">
+            {recentEpisodes.map((item) => (
+              <article key={item.id} className="episode-item">
+                <img src={item.imageUrl} alt={item.title} loading="lazy" />
+                <div>
+                  <h5>{item.title}</h5>
+                  <p>{item.episode}</p>
+                  <span>{item.views}</span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </aside>
+      </section>
     </section>
   );
 }
