@@ -66,7 +66,7 @@ export default function Sidebar() {
         <div className="brand-mark" aria-hidden="true">
           <Clapperboard size={16} strokeWidth={2.4} />
         </div>
-        <span>HASHANIME</span>
+        <span>ANIME VAULT</span>
       </div>
 
       {navGroups.map((group) => (
@@ -95,7 +95,7 @@ export default function Sidebar() {
 
       <div className="sidebar-footer" aria-hidden="true">
         <Grid3X3 size={14} strokeWidth={2.2} />
-        <span>hashanime</span>
+        <span>anime vault</span>
       </div>
     </aside>
   );

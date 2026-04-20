@@ -33,7 +33,7 @@ export default function MainContent({ searchQuery, onSearchQueryChange }: MainCo
           <label className="top-search" aria-label="Search from main navigation">
             <input
               type="search"
-              placeholder="Search for your fave anime"
+              placeholder="Search anime, movies, or episodes"
               value={searchQuery}
               onChange={(event) => onSearchQueryChange(event.target.value)}
             />

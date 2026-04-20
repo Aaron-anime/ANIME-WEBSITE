@@ -27,40 +27,41 @@ export default function HeroSection() {
         <div className="hero-overlay" aria-hidden="true" />
 
         <div className="hero-content">
-          <p className="hero-kicker">ONE PUNCH MAN</p>
+          <p className="hero-kicker">FEATURED ANIME</p>
           <h1>One Punch Man</h1>
-          <p className="hero-meta">2 Seasons | 24 Episodes</p>
+          <p className="hero-meta">Action | 2 Seasons | 24 Episodes</p>
 
           <div className="hero-tags" aria-label="Anime tags">
-            <span>Story</span>
-            <span>Actors</span>
+            <span>Trending</span>
+            <span>Comedy</span>
+            <span>Action</span>
           </div>
 
           <p className="hero-description">
-            His name is Saitama, and every strong enemy learns the same lesson in one punch. Follow his
-            bizarre rise through hero rankings in a world full of monsters and absurd rivalries.
+            Saitama keeps the world in balance with one impossible punch, while every battle around him grows
+            louder, stranger, and more cinematic. Start here for the cleanest entry into the lineup.
           </p>
 
           <div className="hero-actions" aria-label="Hero action buttons">
             <button type="button" className="hero-read-more">
-              Read More
+              Start Watching
             </button>
             <button type="button" className="hero-ghost-button">
-              Add to List
+              Add to Queue
             </button>
           </div>
         </div>
 
         <div className="hero-teasers" aria-label="Hero teaser links">
           <button type="button" className="hero-teaser-card is-dark">
-            To Aru Kagako no Railgun S Trailer
+            Railgun S Trailer
           </button>
           <button type="button" className="hero-teaser-card is-accent">
-            Kyoukai no Kanata Teaser Revealed
+            Beyond the Boundary Teaser
           </button>
         </div>
 
-        <button type="button" className="hero-play" aria-label="Play One Punch Man">
+        <button type="button" className="hero-play" aria-label="Play featured anime">
           <Play size={28} fill="currentColor" />
         </button>
 

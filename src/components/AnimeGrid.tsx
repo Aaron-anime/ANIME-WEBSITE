@@ -363,7 +363,7 @@ export default function AnimeGrid({ searchQuery, contentType }: AnimeGridProps) 
   return (
     <section className="top-rated-section" aria-label="Top rated anime">
       <header className="top-rated-header">
-        <h2>Top Rated Anime</h2>
+        <h2>Trending Anime</h2>
         <button
           type="button"
           className="icon-button"
@@ -390,7 +390,7 @@ export default function AnimeGrid({ searchQuery, contentType }: AnimeGridProps) 
         )}
       </div>
 
-      <h3 className="subsection-title">Latest Anime</h3>
+      <h3 className="subsection-title">Seasonal Picks</h3>
 
       <section className="latest-layout" aria-label="Latest anime and recent episodes">
         <div className="latest-main-column">
@@ -428,12 +428,12 @@ export default function AnimeGrid({ searchQuery, contentType }: AnimeGridProps) 
 
         <aside className="recent-episodes-panel" aria-label="Recent episodes">
           <header>
-            <h4>{episodeMode === 'recent' ? 'Recent Episodes' : 'Recommended'}</h4>
+            <h4>{episodeMode === 'recent' ? 'Recent Episodes' : 'Recommended Picks'}</h4>
             <button
               type="button"
               onClick={() => setEpisodeMode((current) => (current === 'recent' ? 'recommended' : 'recent'))}
             >
-              {episodeMode === 'recent' ? 'Recommended' : 'Recent Episodes'}
+              {episodeMode === 'recent' ? 'Recommended Picks' : 'Recent Episodes'}
             </button>
           </header>
 

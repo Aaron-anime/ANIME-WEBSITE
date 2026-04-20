@@ -127,7 +127,7 @@ export default function RightPanel({ searchQuery, onSearchQueryChange }: RightPa
         <Search size={16} />
         <input
           type="search"
-          placeholder="Type to search"
+          placeholder="Search titles or episodes"
           value={searchQuery}
           onChange={(event) => onSearchQueryChange(event.target.value)}
         />
