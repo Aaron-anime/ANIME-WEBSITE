@@ -1,0 +1,78 @@
+.panel {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border-soft);
+  background: linear-gradient(180deg, rgba(13, 17, 30, 0.9), rgba(7, 9, 18, 0.95));
+  backdrop-filter: blur(14px);
+}
+
+.searchRow {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.searchControl {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.65rem;
+}
+
+.label {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+.searchInput,
+.select {
+  width: 100%;
+  min-height: 2.8rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-soft);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  padding: 0 0.85rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+.searchInput:focus,
+.select:focus {
+  outline: none;
+  border-color: rgba(56, 189, 248, 0.8);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+.searchButton {
+  min-height: 2.8rem;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0 1rem;
+  background: linear-gradient(120deg, var(--accent-purple), var(--accent-blue));
+  color: #ffffff;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.8rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+@media (max-width: 680px) {
+  .searchControl {
+    grid-template-columns: 1fr;
+  }
+}
