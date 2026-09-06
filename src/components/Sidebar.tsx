@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { ComponentType } from 'react';
+import type { PageType } from '../App';
 import {
   CalendarDays,
   Clapperboard,
@@ -12,12 +13,17 @@ import {
   Users,
   Film,
   History,
+  Flame,
+  Sparkles,
+  BookmarkPlus,
+  Bell,
+  User,
 } from 'lucide-react';
 
 interface NavItem {
   label: string;
   icon: ComponentType<{ size?: number; strokeWidth?: number }>;
-  active?: boolean;
+  page?: PageType;
 }
 
 interface NavGroup {
@@ -27,32 +33,41 @@ interface NavGroup {
 
 const navGroups: NavGroup[] = [
   {
-    title: 'Menu',
+    title: 'Discovery',
     items: [
-      { label: 'Home', icon: Home, active: true },
-      { label: 'Community', icon: Users },
-      { label: 'Events', icon: CalendarDays },
+      { label: 'Home', icon: Home, page: 'home' },
+      { label: 'Trending', icon: Flame, page: 'trending' },
+      { label: 'New Releases', icon: Sparkles, page: 'new-releases' },
     ],
   },
   {
     title: 'Categories',
     items: [
-      { label: 'Movies', icon: Film },
-      { label: 'Series', icon: Tv },
+      { label: 'Movies', icon: Film, page: 'movies' },
+      { label: 'Series', icon: Tv, page: 'series' },
     ],
   },
   {
-    title: 'Library',
+    title: 'My Library',
     items: [
-      { label: 'Recent', icon: History },
-      { label: 'Downloaded', icon: Download },
+      { label: 'Watchlist', icon: BookmarkPlus, page: 'watchlist' },
+      { label: 'Recent', icon: History, page: 'recent' },
+      { label: 'Downloaded', icon: Download, page: 'downloads' },
     ],
   },
   {
-    title: 'General',
+    title: 'Community',
     items: [
-      { label: 'Settings', icon: Settings },
-      { label: 'Sign in', icon: LogIn },
+      { label: 'Community', icon: Users, page: 'community' },
+      { label: 'Events', icon: CalendarDays, page: 'events' },
+    ],
+  },
+  {
+    title: 'Account',
+    items: [
+      { label: 'Profile', icon: User, page: 'profile' },
+      { label: 'Settings', icon: Settings, page: 'settings' },
+      { label: 'Sign in', icon: LogIn, page: 'profile' },
     ],
   },
 ];
@@ -60,15 +75,17 @@ const navGroups: NavGroup[] = [
 interface SidebarProps {
   contentType: 'Movies' | 'Series';
   onContentTypeChange: (type: 'Movies' | 'Series') => void;
+  currentPage: PageType;
+  onPageChange: (page: PageType) => void;
 }
 
-export default function Sidebar({ contentType, onContentTypeChange }: SidebarProps) {
-  const [activeItem, setActiveItem] = useState('Home');
-
-  const handleNavClick = (label: string) => {
-    setActiveItem(label);
+export default function Sidebar({ contentType, onContentTypeChange, currentPage, onPageChange }: SidebarProps) {
+  const handleNavClick = (label: string, page?: PageType) => {
     if (label === 'Movies' || label === 'Series') {
       onContentTypeChange(label);
+      onPageChange(label === 'Movies' ? 'movies' : 'series');
+    } else if (page) {
+      onPageChange(page);
     }
   };
 
@@ -88,14 +105,16 @@ export default function Sidebar({ contentType, onContentTypeChange }: SidebarPro
             {group.items.map((item) => {
               const Icon = item.icon;
               const isContentTypeFilter = item.label === 'Movies' || item.label === 'Series';
-              const isActive = isContentTypeFilter ? contentType === item.label : activeItem === item.label;
+              const isActive = isContentTypeFilter 
+                ? contentType === item.label 
+                : currentPage === item.page;
               return (
                 <li key={item.label}>
                   <button
                     type="button"
                     className={isActive ? 'is-active' : ''}
                     aria-pressed={isActive}
-                    onClick={() => handleNavClick(item.label)}
+                    onClick={() => handleNavClick(item.label, item.page)}
                   >
                     <Icon size={16} strokeWidth={2.2} />
                     <span>{item.label}</span>

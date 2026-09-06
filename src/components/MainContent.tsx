@@ -1,7 +1,16 @@
-import { useState } from 'react';
+import type { PageType } from '../App';
 import { Bell, ChevronDown } from 'lucide-react';
 import HeroSection from './HeroSection';
 import AnimeGrid from './AnimeGrid';
+import TrendingPage from './pages/TrendingPage';
+import NewReleasesPage from './pages/NewReleasesPage';
+import WatchlistPage from './pages/WatchlistPage';
+import RecentPage from './pages/RecentPage';
+import DownloadsPage from './pages/DownloadsPage';
+import CommunityPage from './pages/CommunityPage';
+import EventsPage from './pages/EventsPage';
+import SettingsPage from './pages/SettingsPage';
+import ProfilePage from './pages/ProfilePage';
 
 const topNavItems = ['Movies', 'Series'] as const;
 type TopNavItem = (typeof topNavItems)[number];
@@ -11,9 +20,21 @@ interface MainContentProps {
   onSearchQueryChange: (query: string) => void;
   contentType: 'Movies' | 'Series';
   onContentTypeChange: (type: 'Movies' | 'Series') => void;
+  currentPage: PageType;
 }
 
-export default function MainContent({ searchQuery, onSearchQueryChange, contentType, onContentTypeChange }: MainContentProps) {
+export default function MainContent({ searchQuery, onSearchQueryChange, contentType, onContentTypeChange, currentPage }: MainContentProps) {
+  
+  // Render different pages based on currentPage
+  if (currentPage === 'trending') return <TrendingPage />;
+  if (currentPage === 'new-releases') return <NewReleasesPage />;
+  if (currentPage === 'watchlist') return <WatchlistPage />;
+  if (currentPage === 'recent') return <RecentPage />;
+  if (currentPage === 'downloads') return <DownloadsPage />;
+  if (currentPage === 'community') return <CommunityPage />;
+  if (currentPage === 'events') return <EventsPage />;
+  if (currentPage === 'settings') return <SettingsPage />;
+  if (currentPage === 'profile') return <ProfilePage />;
 
   return (
     <main className="main-content" aria-label="Main dashboard content">
