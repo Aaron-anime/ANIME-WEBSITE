@@ -31,7 +31,7 @@ const animeList: AnimeItem[] = [
     id: 1,
     title: 'Demon Slayer',
     imageUrl:
-      'https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=500&q=80',
+      'https://images.unsplash.com/photo-1508042049619-aba7e08e0fbb?auto=format&fit=crop&w=500&q=80',
     subtitle: 'Fantasy',
     contentType: 'Series',
   },
@@ -39,7 +39,7 @@ const animeList: AnimeItem[] = [
     id: 2,
     title: 'One Piece',
     imageUrl:
-      'https://images.unsplash.com/photo-1511407397940-d57f68e81203?auto=format&fit=crop&w=500&q=80',
+      'https://images.unsplash.com/photo-1502581827181-e2ead2265be9?auto=format&fit=crop&w=500&q=80',
     subtitle: 'Adventure',
     contentType: 'Series',
   },
@@ -47,7 +47,7 @@ const animeList: AnimeItem[] = [
     id: 3,
     title: 'Naruto',
     imageUrl:
-      'https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=500&q=80',
+      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=500&q=80',
     subtitle: 'Shonen',
     contentType: 'Series',
   },
@@ -55,7 +55,7 @@ const animeList: AnimeItem[] = [
     id: 4,
     title: 'Dragon Ball Z',
     imageUrl:
-      'https://images.unsplash.com/photo-1531259683007-016a7b628fc3?auto=format&fit=crop&w=500&q=80',
+      'https://images.unsplash.com/photo-1501634430926-15f72ecfedba?auto=format&fit=crop&w=500&q=80',
     subtitle: 'Action',
     contentType: 'Movies',
   },
@@ -63,8 +63,32 @@ const animeList: AnimeItem[] = [
     id: 5,
     title: 'Death Note',
     imageUrl:
-      'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=500&q=80',
+      'https://images.unsplash.com/photo-1544716278-ca5e3af38d4f?auto=format&fit=crop&w=500&q=80',
     subtitle: 'Thriller',
+    contentType: 'Movies',
+  },
+  {
+    id: 6,
+    title: 'Attack on Titan',
+    imageUrl:
+      'https://images.unsplash.com/photo-1489599849228-da7355aeace5?auto=format&fit=crop&w=500&q=80',
+    subtitle: 'Dark Fantasy',
+    contentType: 'Series',
+  },
+  {
+    id: 7,
+    title: 'My Hero Academia',
+    imageUrl:
+      'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=500&q=80',
+    subtitle: 'Superhero',
+    contentType: 'Series',
+  },
+  {
+    id: 8,
+    title: 'Steins;Gate',
+    imageUrl:
+      'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?auto=format&fit=crop&w=500&q=80',
+    subtitle: 'Sci-Fi Thriller',
     contentType: 'Movies',
   },
 ];
@@ -79,7 +103,7 @@ const seasonalAnimeByTab: Record<SeasonalTab, SeasonalItem[]> = {
       title: 'Samurai Flamenco',
       genre: 'Drama, Comedy',
       imageUrl:
-        'https://images.unsplash.com/photo-1612036782180-6f0822045d26?auto=format&fit=crop&w=500&q=80',
+        'https://images.unsplash.com/photo-1534728282221-b8e3f7a5703f?auto=format&fit=crop&w=500&q=80',
       contentType: 'Series',
     },
     {
@@ -87,7 +111,7 @@ const seasonalAnimeByTab: Record<SeasonalTab, SeasonalItem[]> = {
       title: 'Strike the Blood',
       genre: 'Action, Adventure',
       imageUrl:
-        'https://images.unsplash.com/photo-1608889176105-4f7e4a5ef8f0?auto=format&fit=crop&w=500&q=80',
+        'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=500&q=80',
       contentType: 'Series',
     },
     {
@@ -95,7 +119,7 @@ const seasonalAnimeByTab: Record<SeasonalTab, SeasonalItem[]> = {
       title: 'World Conquest Zvezda',
       genre: 'Fantasy, Sci-Fi',
       imageUrl:
-        'https://images.unsplash.com/photo-1618172193763-c511deb635ca?auto=format&fit=crop&w=500&q=80',
+        'https://images.unsplash.com/photo-1536440936351-2e2641f43dae?auto=format&fit=crop&w=500&q=80',
       highlight: '3/16 episodes aired',
       contentType: 'Movies',
     },
@@ -104,144 +128,224 @@ const seasonalAnimeByTab: Record<SeasonalTab, SeasonalItem[]> = {
       title: 'Black Bullet',
       genre: 'Action, Adventure',
       imageUrl:
-        'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=500&q=80',
+        'https://images.unsplash.com/photo-1535016120754-fd394ab932bc?auto=format&fit=crop&w=500&q=80',
       contentType: 'Movies',
     },
-  ],
-  Spring: [
     {
       id: 5,
-      title: 'Blue Exorcist',
-      genre: 'Supernatural',
+      title: 'Jujutsu Kaisen',
+      genre: 'Dark Fantasy, Action',
       imageUrl:
-        'https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=500&q=80',
+        'https://images.unsplash.com/photo-1503315668682-6e6f5a31f9b8?auto=format&fit=crop&w=500&q=80',
       contentType: 'Series',
     },
     {
       id: 6,
-      title: 'Noragami',
-      genre: 'Urban Fantasy',
+      title: 'Tokyo Revengers',
+      genre: 'Action, Drama',
       imageUrl:
-        'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=500&q=80',
+        'https://images.unsplash.com/photo-1502356128c64-bee7eeba266d?auto=format&fit=crop&w=500&q=80',
       contentType: 'Series',
     },
+  ],
+  Spring: [
     {
       id: 7,
-      title: 'K-On!',
-      genre: 'Slice of Life',
+      title: 'Blue Exorcist',
+      genre: 'Supernatural',
       imageUrl:
-        'https://images.unsplash.com/photo-1535598745644-bc7913bbf157?auto=format&fit=crop&w=500&q=80',
+        'https://images.unsplash.com/photo-1483389127117-b6a2102724ae?auto=format&fit=crop&w=500&q=80',
       contentType: 'Series',
     },
     {
       id: 8,
+      title: 'Noragami',
+      genre: 'Urban Fantasy',
+      imageUrl:
+        'https://images.unsplash.com/photo-1505695521149-3c74dc08b386?auto=format&fit=crop&w=500&q=80',
+      contentType: 'Series',
+    },
+    {
+      id: 9,
+      title: 'K-On!',
+      genre: 'Slice of Life',
+      imageUrl:
+        'https://images.unsplash.com/photo-1511379938547-c1f69b13d835?auto=format&fit=crop&w=500&q=80',
+      contentType: 'Series',
+    },
+    {
+      id: 10,
       title: 'Bungo Stray Dogs',
       genre: 'Mystery, Action',
       imageUrl:
-        'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=500&q=80',
+        'https://images.unsplash.com/photo-1516450360452-9312f5ff84ab?auto=format&fit=crop&w=500&q=80',
+      contentType: 'Movies',
+    },
+    {
+      id: 11,
+      title: 'Fruits Basket',
+      genre: 'Romance, Comedy',
+      imageUrl:
+        'https://images.unsplash.com/photo-1518066331714-f49ad1db688f?auto=format&fit=crop&w=500&q=80',
+      contentType: 'Series',
+    },
+    {
+      id: 12,
+      title: 'A Place Further Than the Universe',
+      genre: 'Adventure, Drama',
+      imageUrl:
+        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=500&q=80',
       contentType: 'Movies',
     },
   ],
   Summer: [
     {
-      id: 9,
+      id: 13,
       title: 'Free!',
       genre: 'Sports',
       imageUrl:
-        'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=500&q=80',
+        'https://images.unsplash.com/photo-1520893278798-5e89f0d8c9d4?auto=format&fit=crop&w=500&q=80',
       contentType: 'Series',
     },
     {
-      id: 10,
+      id: 14,
       title: 'Fire Force',
       genre: 'Action',
       imageUrl:
-        'https://images.unsplash.com/photo-1626544827763-d516dce335e2?auto=format&fit=crop&w=500&q=80',
+        'https://images.unsplash.com/photo-1523821741446-edb766ce0aab?auto=format&fit=crop&w=500&q=80',
       contentType: 'Series',
     },
     {
-      id: 11,
+      id: 15,
       title: 'Dr. Stone',
       genre: 'Sci-Fi',
       imageUrl:
-        'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=500&q=80',
+        'https://images.unsplash.com/photo-1499978329105-b40eb5e94ca3?auto=format&fit=crop&w=500&q=80',
       contentType: 'Movies',
     },
     {
-      id: 12,
+      id: 16,
       title: 'Toradora!',
       genre: 'Romance',
       imageUrl:
-        'https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=500&q=80',
+        'https://images.unsplash.com/photo-1516881959230-a75ee9dfc0eb?auto=format&fit=crop&w=500&q=80',
+      contentType: 'Movies',
+    },
+    {
+      id: 17,
+      title: 'Haikyuu!!',
+      genre: 'Sports, Drama',
+      imageUrl:
+        'https://images.unsplash.com/photo-1533461502717-83546f485c55?auto=format&fit=crop&w=500&q=80',
+      contentType: 'Series',
+    },
+    {
+      id: 18,
+      title: 'Your Name',
+      genre: 'Romance, Sci-Fi',
+      imageUrl:
+        'https://images.unsplash.com/photo-1534704192104-0f72e8993c82?auto=format&fit=crop&w=500&q=80',
       contentType: 'Movies',
     },
   ],
   Fall: [
     {
-      id: 13,
+      id: 19,
       title: 'Psycho-Pass',
       genre: 'Cyberpunk',
       imageUrl:
-        'https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=500&q=80',
+        'https://images.unsplash.com/photo-1498842812105-8d5d59f3a5b5?auto=format&fit=crop&w=500&q=80',
       contentType: 'Series',
     },
     {
-      id: 14,
+      id: 20,
       title: 'Mob Psycho 100',
       genre: 'Comedy, Action',
       imageUrl:
-        'https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=500&q=80',
+        'https://images.unsplash.com/photo-1495909900881-9269cf999fa0?auto=format&fit=crop&w=500&q=80',
       contentType: 'Series',
     },
     {
-      id: 15,
+      id: 21,
       title: 'Violet Evergarden',
       genre: 'Drama',
       imageUrl:
-        'https://images.unsplash.com/photo-1608889175638-9322300c46f0?auto=format&fit=crop&w=500&q=80',
+        'https://images.unsplash.com/photo-1505739998589-00fc193ce96a?auto=format&fit=crop&w=500&q=80',
       contentType: 'Movies',
     },
     {
-      id: 16,
+      id: 22,
       title: 'Parasyte',
       genre: 'Horror',
       imageUrl:
-        'https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=500&q=80',
+        'https://images.unsplash.com/photo-1532777946891-8c63ec3a3e9f?auto=format&fit=crop&w=500&q=80',
+      contentType: 'Movies',
+    },
+    {
+      id: 23,
+      title: 'Demon Slayer: Kimetsu no Yaiba',
+      genre: 'Dark Fantasy, Action',
+      imageUrl:
+        'https://images.unsplash.com/photo-1487180144351-b8472da7d491?auto=format&fit=crop&w=500&q=80',
+      contentType: 'Series',
+    },
+    {
+      id: 24,
+      title: 'A Silent Voice',
+      genre: 'Drama, Romance',
+      imageUrl:
+        'https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?auto=format&fit=crop&w=500&q=80',
       contentType: 'Movies',
     },
   ],
   Winter: [
     {
-      id: 17,
+      id: 25,
       title: 'Erased',
       genre: 'Mystery',
       imageUrl:
-        'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=500&q=80',
+        'https://images.unsplash.com/photo-1494723969897-58ba04ebb195?auto=format&fit=crop&w=500&q=80',
       contentType: 'Series',
     },
     {
-      id: 18,
+      id: 26,
       title: 'Made in Abyss',
       genre: 'Adventure',
       imageUrl:
-        'https://images.unsplash.com/photo-1516280030429-27679b3dc9cf?auto=format&fit=crop&w=500&q=80',
+        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=500&q=80',
       contentType: 'Series',
     },
     {
-      id: 19,
+      id: 27,
       title: 'Ranking of Kings',
       genre: 'Fantasy',
       imageUrl:
-        'https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=500&q=80',
+        'https://images.unsplash.com/photo-1508615039623-a25605d2b022?auto=format&fit=crop&w=500&q=80',
       highlight: '2/12 episodes aired',
       contentType: 'Movies',
     },
     {
-      id: 20,
+      id: 28,
       title: 'Baccano!',
       genre: 'Crime, Thriller',
       imageUrl:
-        'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=500&q=80',
+        'https://images.unsplash.com/photo-1524712245610-eaeb2b12f96b?auto=format&fit=crop&w=500&q=80',
+      contentType: 'Movies',
+    },
+    {
+      id: 29,
+      title: 'Bleach',
+      genre: 'Action, Supernatural',
+      imageUrl:
+        'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?auto=format&fit=crop&w=500&q=80',
+      contentType: 'Series',
+    },
+    {
+      id: 30,
+      title: 'Weathering with You',
+      genre: 'Fantasy, Romance',
+      imageUrl:
+        'https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=500&q=80',
       contentType: 'Movies',
     },
   ],

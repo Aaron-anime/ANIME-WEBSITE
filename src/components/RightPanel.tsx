@@ -122,17 +122,7 @@ export default function RightPanel({ searchQuery, onSearchQueryChange }: RightPa
   const canTogglePopular = !normalizedQuery && filteredPopular.length > 3;
 
   return (
-    <aside className="right-panel" aria-label="Search and recommendations panel">
-      <label className="search-wrap" aria-label="Search anime">
-        <Search size={16} />
-        <input
-          type="search"
-          placeholder="Search titles or episodes"
-          value={searchQuery}
-          onChange={(event) => onSearchQueryChange(event.target.value)}
-        />
-      </label>
-
+    <aside className="right-panel" aria-label="Recommendations panel">
       <section className="side-section" aria-label="Popular Anime">
         <h3>Popular Anime</h3>
         <div className="side-list">

@@ -57,8 +57,20 @@ const navGroups: NavGroup[] = [
   },
 ];
 
-export default function Sidebar() {
+interface SidebarProps {
+  contentType: 'Movies' | 'Series';
+  onContentTypeChange: (type: 'Movies' | 'Series') => void;
+}
+
+export default function Sidebar({ contentType, onContentTypeChange }: SidebarProps) {
   const [activeItem, setActiveItem] = useState('Home');
+
+  const handleNavClick = (label: string) => {
+    setActiveItem(label);
+    if (label === 'Movies' || label === 'Series') {
+      onContentTypeChange(label);
+    }
+  };
 
   return (
     <aside className="left-sidebar" aria-label="Main navigation sidebar">
@@ -75,13 +87,15 @@ export default function Sidebar() {
           <ul>
             {group.items.map((item) => {
               const Icon = item.icon;
+              const isContentTypeFilter = item.label === 'Movies' || item.label === 'Series';
+              const isActive = isContentTypeFilter ? contentType === item.label : activeItem === item.label;
               return (
                 <li key={item.label}>
                   <button
                     type="button"
-                    className={activeItem === item.label ? 'is-active' : ''}
-                    aria-pressed={activeItem === item.label}
-                    onClick={() => setActiveItem(item.label)}
+                    className={isActive ? 'is-active' : ''}
+                    aria-pressed={isActive}
+                    onClick={() => handleNavClick(item.label)}
                   >
                     <Icon size={16} strokeWidth={2.2} />
                     <span>{item.label}</span>

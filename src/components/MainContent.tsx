@@ -9,10 +9,11 @@ type TopNavItem = (typeof topNavItems)[number];
 interface MainContentProps {
   searchQuery: string;
   onSearchQueryChange: (query: string) => void;
+  contentType: 'Movies' | 'Series';
+  onContentTypeChange: (type: 'Movies' | 'Series') => void;
 }
 
-export default function MainContent({ searchQuery, onSearchQueryChange }: MainContentProps) {
-  const [activeTab, setActiveTab] = useState<TopNavItem>('Series');
+export default function MainContent({ searchQuery, onSearchQueryChange, contentType, onContentTypeChange }: MainContentProps) {
 
   return (
     <main className="main-content" aria-label="Main dashboard content">
@@ -20,8 +21,8 @@ export default function MainContent({ searchQuery, onSearchQueryChange }: MainCo
         <nav aria-label="Content type navigation">
           <ul>
             {topNavItems.map((item) => (
-              <li key={item} className={item === activeTab ? 'is-active' : ''}>
-                <button type="button" onClick={() => setActiveTab(item)}>
+              <li key={item} className={item === contentType ? 'is-active' : ''}>
+                <button type="button" onClick={() => onContentTypeChange(item)}>
                   {item}
                 </button>
               </li>
@@ -54,7 +55,7 @@ export default function MainContent({ searchQuery, onSearchQueryChange }: MainCo
       </header>
 
       <HeroSection />
-      <AnimeGrid searchQuery={searchQuery} contentType={activeTab} />
+      <AnimeGrid searchQuery={searchQuery} contentType={contentType} />
     </main>
   );
 }

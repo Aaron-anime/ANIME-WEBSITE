@@ -33,7 +33,6 @@
   position: sticky;
   top: 0;
   overflow-y: auto;
-  scrollbar-width: thin;
 }
 
 .left-sidebar::-webkit-scrollbar,
@@ -350,10 +349,7 @@
 }
 
 .hero-teasers {
-  position: absolute;
-  left: 1.06rem;
-  bottom: 1.06rem;
-  z-index: 3;
+  margin-top: 0.82rem;
   display: flex;
   gap: 0.45rem;
 }
@@ -443,7 +439,6 @@
   gap: 0.52rem;
   overflow-x: auto;
   padding-bottom: 0.32rem;
-  scrollbar-width: thin;
 }
 
 .poster-card {
@@ -1172,6 +1167,7 @@
   height: auto;
   min-height: calc(100vh - 1.5rem);
   background: rgba(6, 8, 16, 0.58);
+  -webkit-backdrop-filter: blur(24px);
   backdrop-filter: blur(24px);
 }
 
@@ -1419,6 +1415,7 @@
   text-transform: uppercase;
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.16);
+  -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
 }
 
@@ -1472,6 +1469,7 @@
   color: #ffffff;
   background: rgba(8, 10, 18, 0.72);
   border: 1px solid rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
 }
@@ -1622,6 +1620,7 @@
   padding: 0.22rem 0.58rem;
   font-size: 0.62rem;
   letter-spacing: 0.08em;
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
 
@@ -1811,7 +1810,7 @@
 
   .left-sidebar,
   .main-content {
-    min-height: auto;
+    min-height: unset;
     position: static;
   }
 
