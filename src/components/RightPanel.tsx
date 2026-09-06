@@ -88,9 +88,10 @@ function SideList({ title, items }: { title: string; items: SideListItem[] }) {
 interface RightPanelProps {
   searchQuery: string;
   onSearchQueryChange: (query: string) => void;
+  notifications?: Array<{ id: string; message: string; type: 'info' | 'success' | 'warning' }>;
 }
 
-export default function RightPanel({ searchQuery, onSearchQueryChange }: RightPanelProps) {
+export default function RightPanel({ searchQuery, onSearchQueryChange, notifications = [] }: RightPanelProps) {
   const [showAllPopular, setShowAllPopular] = useState(false);
   const normalizedQuery = searchQuery.trim().toLowerCase();
 

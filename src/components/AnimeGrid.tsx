@@ -27,70 +27,26 @@ interface EpisodeItem {
 }
 
 const animeList: AnimeItem[] = [
-  {
-    id: 1,
-    title: 'Demon Slayer',
-    imageUrl:
-      'https://images.unsplash.com/photo-1508042049619-aba7e08e0fbb?auto=format&fit=crop&w=500&q=80',
-    subtitle: 'Fantasy',
-    contentType: 'Series',
-  },
-  {
-    id: 2,
-    title: 'One Piece',
-    imageUrl:
-      'https://images.unsplash.com/photo-1502581827181-e2ead2265be9?auto=format&fit=crop&w=500&q=80',
-    subtitle: 'Adventure',
-    contentType: 'Series',
-  },
-  {
-    id: 3,
-    title: 'Naruto',
-    imageUrl:
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=500&q=80',
-    subtitle: 'Shonen',
-    contentType: 'Series',
-  },
-  {
-    id: 4,
-    title: 'Dragon Ball Z',
-    imageUrl:
-      'https://images.unsplash.com/photo-1501634430926-15f72ecfedba?auto=format&fit=crop&w=500&q=80',
-    subtitle: 'Action',
-    contentType: 'Movies',
-  },
-  {
-    id: 5,
-    title: 'Death Note',
-    imageUrl:
-      'https://images.unsplash.com/photo-1544716278-ca5e3af38d4f?auto=format&fit=crop&w=500&q=80',
-    subtitle: 'Thriller',
-    contentType: 'Movies',
-  },
-  {
-    id: 6,
-    title: 'Attack on Titan',
-    imageUrl:
-      'https://images.unsplash.com/photo-1489599849228-da7355aeace5?auto=format&fit=crop&w=500&q=80',
-    subtitle: 'Dark Fantasy',
-    contentType: 'Series',
-  },
-  {
-    id: 7,
-    title: 'My Hero Academia',
-    imageUrl:
-      'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=500&q=80',
-    subtitle: 'Superhero',
-    contentType: 'Series',
-  },
-  {
-    id: 8,
-    title: 'Steins;Gate',
-    imageUrl:
-      'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?auto=format&fit=crop&w=500&q=80',
-    subtitle: 'Sci-Fi Thriller',
-    contentType: 'Movies',
-  },
+  { id: 1, title: 'Demon Slayer', imageUrl: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=500&q=80', subtitle: 'Action, Fantasy', contentType: 'Series' },
+  { id: 2, title: 'One Piece', imageUrl: 'https://images.unsplash.com/photo-1508042049619-aba7e08e0fbb?auto=format&fit=crop&w=500&q=80', subtitle: 'Adventure, Shonen', contentType: 'Series' },
+  { id: 3, title: 'Naruto Shippuden', imageUrl: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=500&q=80', subtitle: 'Action, Shonen', contentType: 'Series' },
+  { id: 4, title: 'Dragon Ball Z', imageUrl: 'https://images.unsplash.com/photo-1501634430926-15f72ecfedba?auto=format&fit=crop&w=500&q=80', subtitle: 'Action, Martial Arts', contentType: 'Movies' },
+  { id: 5, title: 'Death Note', imageUrl: 'https://images.unsplash.com/photo-1544716278-ca5e3af38d4f?auto=format&fit=crop&w=500&q=80', subtitle: 'Thriller, Supernatural', contentType: 'Series' },
+  { id: 6, title: 'Attack on Titan', imageUrl: 'https://images.unsplash.com/photo-1489599849228-da7355aeace5?auto=format&fit=crop&w=500&q=80', subtitle: 'Dark Fantasy, Action', contentType: 'Series' },
+  { id: 7, title: 'My Hero Academia', imageUrl: 'https://images.unsplash.com/photo-1503315668682-6e6f5a31f9b8?auto=format&fit=crop&w=500&q=80', subtitle: 'Superhero, School', contentType: 'Series' },
+  { id: 8, title: 'Jujutsu Kaisen', imageUrl: 'https://images.unsplash.com/photo-1536440936351-2e2641f43dae?auto=format&fit=crop&w=500&q=80', subtitle: 'Dark Fantasy, Action', contentType: 'Series' },
+  { id: 9, title: 'Tokyo Revengers', imageUrl: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=500&q=80', subtitle: 'Action, Supernatural', contentType: 'Series' },
+  { id: 10, title: 'Bleach', imageUrl: 'https://images.unsplash.com/photo-1626544827763-d516dce335e2?auto=format&fit=crop&w=500&q=80', subtitle: 'Action, Supernatural', contentType: 'Series' },
+  { id: 11, title: 'Chainsaw Man', imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=500&q=80', subtitle: 'Action, Dark Fantasy', contentType: 'Series' },
+  { id: 12, title: 'Solo Leveling', imageUrl: 'https://images.unsplash.com/photo-1534704192104-0f72e8993c82?auto=format&fit=crop&w=500&q=80', subtitle: 'Action, Fantasy', contentType: 'Series' },
+  { id: 13, title: 'Steins;Gate', imageUrl: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?auto=format&fit=crop&w=500&q=80', subtitle: 'Sci-Fi Thriller', contentType: 'Movies' },
+  { id: 14, title: 'Sword Art Online', imageUrl: 'https://images.unsplash.com/photo-1533461502717-83546f485c55?auto=format&fit=crop&w=500&q=80', subtitle: 'Sci-Fi, Adventure', contentType: 'Series' },
+  { id: 15, title: 'Code Geass', imageUrl: 'https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?auto=format&fit=crop&w=500&q=80', subtitle: 'Sci-Fi, Action', contentType: 'Series' },
+  { id: 16, title: 'Neon Genesis Evangelion', imageUrl: 'https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=500&q=80', subtitle: 'Mecha, Psychological', contentType: 'Movies' },
+  { id: 17, title: 'Mob Psycho 100', imageUrl: 'https://images.unsplash.com/photo-1495909900881-9269cf999fa0?auto=format&fit=crop&w=500&q=80', subtitle: 'Comedy, Action', contentType: 'Series' },
+  { id: 18, title: 'The Promised Neverland', imageUrl: 'https://images.unsplash.com/photo-1505739998589-00fc193ce96a?auto=format&fit=crop&w=500&q=80', subtitle: 'Mystery, Thriller', contentType: 'Series' },
+  { id: 19, title: 'Spy x Family', imageUrl: 'https://images.unsplash.com/photo-1487180144351-b8a2102724ae?auto=format&fit=crop&w=500&q=80', subtitle: 'Comedy, Action', contentType: 'Series' },
+  { id: 20, title: 'Wind Breaker', imageUrl: 'https://images.unsplash.com/photo-1532777946891-8c63ec3a3e9f?auto=format&fit=crop&w=500&q=80', subtitle: 'Action, School', contentType: 'Series' },
 ];
 
 const seasonalTabs = ['Airing now', 'Spring', 'Summer', 'Fall', 'Winter'] as const;

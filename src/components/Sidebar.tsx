@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import type { ComponentType } from 'react';
-import type { PageType } from '../App';
+import type { PageType, User } from '../App';
 import {
   CalendarDays,
   Clapperboard,
   Download,
   Grid3X3,
   Home,
-  LogIn,
+  LogOut,
   Settings,
   Tv,
   Users,
@@ -17,7 +17,7 @@ import {
   Sparkles,
   BookmarkPlus,
   Bell,
-  User,
+  User as UserIcon,
 } from 'lucide-react';
 
 interface NavItem {
@@ -65,9 +65,8 @@ const navGroups: NavGroup[] = [
   {
     title: 'Account',
     items: [
-      { label: 'Profile', icon: User, page: 'profile' },
+      { label: 'Profile', icon: UserIcon, page: 'profile' },
       { label: 'Settings', icon: Settings, page: 'settings' },
-      { label: 'Sign in', icon: LogIn, page: 'profile' },
     ],
   },
 ];
@@ -77,9 +76,11 @@ interface SidebarProps {
   onContentTypeChange: (type: 'Movies' | 'Series') => void;
   currentPage: PageType;
   onPageChange: (page: PageType) => void;
+  user: User | null;
+  onLogout: () => void;
 }
 
-export default function Sidebar({ contentType, onContentTypeChange, currentPage, onPageChange }: SidebarProps) {
+export default function Sidebar({ contentType, onContentTypeChange, currentPage, onPageChange, user, onLogout }: SidebarProps) {
   const handleNavClick = (label: string, page?: PageType) => {
     if (label === 'Movies' || label === 'Series') {
       onContentTypeChange(label);
@@ -125,6 +126,74 @@ export default function Sidebar({ contentType, onContentTypeChange, currentPage,
           </ul>
         </section>
       ))}
+
+      {/* User Info Section */}
+      {user && (
+        <section style={{
+          marginTop: 'auto',
+          paddingTop: '1rem',
+          borderTop: '1px solid rgba(255,255,255,0.08)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '0.8rem'
+        }}>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.8rem',
+            padding: '0.8rem'
+          }}>
+            <img
+              src={user.avatar}
+              alt={user.username}
+              style={{
+                width: '32px',
+                height: '32px',
+                borderRadius: '50%',
+                objectFit: 'cover'
+              }}
+            />
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <p style={{ margin: 0, color: '#e4e4e7', fontSize: '0.9rem', fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                {user.username}
+              </p>
+              <p style={{ margin: 0, color: '#7b7b87', fontSize: '0.75rem' }}>
+                {user.isPremium ? '⭐ Premium' : 'Free'}
+              </p>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={onLogout}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.6rem',
+              width: '100%',
+              padding: '0.6rem 0.8rem',
+              background: 'rgba(239, 35, 60, 0.1)',
+              border: '1px solid rgba(239, 35, 60, 0.2)',
+              borderRadius: '6px',
+              color: '#ef233c',
+              cursor: 'pointer',
+              fontSize: '0.85rem',
+              fontWeight: 600,
+              transition: 'all 0.2s'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'rgba(239, 35, 60, 0.2)';
+              e.currentTarget.style.borderColor = 'rgba(239, 35, 60, 0.4)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'rgba(239, 35, 60, 0.1)';
+              e.currentTarget.style.borderColor = 'rgba(239, 35, 60, 0.2)';
+            }}
+          >
+            <LogOut size={16} />
+            Sign Out
+          </button>
+        </section>
+      )}
 
       <div className="sidebar-footer" aria-hidden="true">
         <Grid3X3 size={14} strokeWidth={2.2} />
