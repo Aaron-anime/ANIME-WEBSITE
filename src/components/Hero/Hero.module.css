@@ -1,0 +1,141 @@
+.hero {
+  position: relative;
+  min-height: min(86vh, 760px);
+  width: 100%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+
+.banner {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  transform: scale(1.08);
+  filter: brightness(0.35) saturate(1.15);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 18%, rgba(76, 29, 149, 0.32), transparent 30%),
+    linear-gradient(180deg, rgba(5, 7, 16, 0.2), rgba(5, 7, 16, 0.85));
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  width: min(960px, 100% - 2.5rem);
+  display: grid;
+  gap: 1rem;
+}
+
+.kicker {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  line-height: 0.9;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  text-wrap: balance;
+  text-shadow: 0 14px 45px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+  margin: 0 auto;
+  max-width: 58ch;
+  color: var(--text-secondary);
+  font-size: clamp(0.98rem, 2vw, 1.3rem);
+}
+
+.cta {
+  position: relative;
+  justify-self: center;
+  margin-top: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  padding: 0.9rem 2.1rem;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  cursor: pointer;
+  transition: transform 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
+  overflow: hidden;
+}
+
+.cta:hover {
+  transform: translateY(-2px) scale(1.01);
+  border-color: rgba(79, 70, 229, 0.8);
+  box-shadow: 0 12px 42px rgba(79, 70, 229, 0.35);
+}
+
+.ctaText {
+  position: relative;
+  z-index: 2;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.ctaGlow {
+  position: absolute;
+  inset: -40%;
+  background: linear-gradient(120deg, rgba(79, 70, 229, 0.7), rgba(56, 189, 248, 0.65));
+  opacity: 0;
+  filter: blur(18px);
+  transition: opacity 250ms ease;
+}
+
+.cta:hover .ctaGlow {
+  opacity: 0.45;
+}
+
+.orb {
+  position: absolute;
+  width: clamp(340px, 45vw, 720px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  left: 8%;
+  top: 8%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.2), transparent 66%);
+  pointer-events: none;
+  animation: drift 10s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-12px) scale(1.04);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 72vh;
+  }
+
+  .content {
+    width: min(960px, 100% - 1.5rem);
+  }
+
+  .cta {
+    width: 100%;
+    max-width: 340px;
+  }
+}
